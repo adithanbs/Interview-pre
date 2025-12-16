@@ -1,0 +1,20 @@
+what are features of javascript Es6?
+function f(a){
+    console.log(a);
+    var a=10;
+    console.log(a);
+}
+f(5);
+// what is output?
+
+console.log("A");
+( async () => {
+    console.log("B");
+    await Promise.resolve();
+    console.log("C");
+})();
+Promise.resolve().then(() => {
+    console.log("D");
+});
+console.log("E");/
+// what is output order?
