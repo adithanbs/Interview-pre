@@ -1,11 +1,18 @@
+KAIZEN
+HARAHACHI
+IKIGAI
+WABI - SABI
+GAMBARU
+
 what are features of javascript Es6?
+
 function f(a){
     console.log(a);
     var a=10;
     console.log(a);
 }
 f(5);
-// what is output?
+// what is output =>  5, 10
 
 console.log("A");
 ( async () => {
@@ -16,5 +23,148 @@ console.log("A");
 Promise.resolve().then(() => {
     console.log("D");
 });
-console.log("E");/
+console.log("E");
 // what is output order?
+
+A,B,E,C,D
+
+function test() {
+  console.log(a);
+  var a = 5;
+}
+test();
+// what is output? => undefined
+
+var a = 10;
+function foo() {
+  console.log(a);
+  var a = 20;
+}
+foo();
+// what is output? => undefined
+
+
+function demo(a) {
+  var a;
+  console.log(a);
+}
+demo(100);
+// what is output? => 100
+
+var x = 1;
+function fn() {
+  console.log(x);
+  x = 5;
+}
+fn();
+console.log(x);
+
+// what is output? => 1, 5
+
+function outer() {
+  var a = 1;
+  function inner() {
+    console.log(a);
+    var a = 2;
+  }
+  inner();
+}
+outer();
+// what is output? => undefined
+
+console.log(a);
+let a = 10;
+// what is output? => ReferenceError: Cannot access 'a' before initialization
+
+let x = 5;
+{
+  console.log(x);
+  let x = 10;
+}
+// what is output? => ReferenceError: Cannot access 'x' before initialization
+
+const obj = { a: 1 };
+obj.a = 2;
+console.log(obj.a);
+// what is output? => 2
+
+for (var i = 0; i < 3; i++) {
+  setTimeout(() => console.log(i), 0);
+}
+// what is output? => 3, 3, 3
+
+for (let i = 0; i < 3; i++) {
+  setTimeout(() => console.log(i), 0);
+}
+
+// what is output? => 0, 1, 2
+
+function makeFn() {
+  let count = 0;
+  return function () {
+    console.log(++count);
+  };
+}
+const fn = makeFn();
+fn();
+fn();
+
+// what is output? => 1, 2
+
+console.log("A");
+setTimeout(() => console.log("B"), 0);
+Promise.resolve().then(() => console.log("C"));
+console.log("D");
+// what is output order? => A, D, C, B
+
+async function test() {
+  console.log("1");
+  await Promise.resolve();
+  console.log("2");
+}
+test();
+console.log("3");
+// what is output order? => 1, 3, 2
+
+Promise.resolve()
+  .then(() => {
+    console.log("A");
+    return Promise.resolve("B");
+  })
+  .then(console.log);
+
+// what is output order? => A, B
+
+console.log("start");
+setTimeout(() => console.log("timeout"), 0);
+Promise.resolve().then(() => console.log("promise"));
+console.log("end");
+
+// what is output order? => start, end, promise, timeout
+
+console.log(typeof null);
+// what is output? => object
+
+console.log([] == []);
+console.log([] == ![]);
+
+// what is output? => false, true
+
+function foo() {
+  return
+  {
+    a: 1
+  };
+}
+console.log(foo());
+// what is output? => undefined
+
+console.log(0.1 + 0.2 === 0.3);
+// what is output? => false
+
+(function () {
+  console.log(a);
+  var a = 10;
+})();
+
+// what is output? => undefined
