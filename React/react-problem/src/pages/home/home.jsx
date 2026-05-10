@@ -7,6 +7,8 @@ const Home = () => {
     <li><Link to="/dynamic-form-update">Go to Dynamic Form Update Page</Link></li>
     <li><Link to="/lift">React Lift Page</Link></li>
    <li><Link to="/ref">Handle Child Event with Ref</Link></li>
+   <li><Link to="/memory-leak">Memory Leak</Link></li>
+    <li><Link to="/test-context">Test Context</Link></li>
   </ul>
   
   </>;
