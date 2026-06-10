@@ -67,6 +67,29 @@ const handleMoveBackward = (id) => {
 const handleDelete = (id) => {
   setTodos(todos.filter(todo => todo.id !== id));
 }
+
+const handleDragStart = (e, status, id) => {
+  e.dataTransfer.setData("task", JSON.stringify({ status, id }));
+}
+const handleOnDrop = (e, title) => {
+  e.preventDefault();
+  try {
+    const data = e.dataTransfer.getData("task");
+    if (!data) return;
+    const taskData = JSON.parse(data);
+    const { id, status } = taskData;
+    if(title !== status) {
+      setTodos(todos.map(todo => {
+        if(todo.id === id) {
+          return {...todo, status: title};
+        }
+        return todo;
+      }));
+    }
+  } catch (error) {
+    console.error("Error parsing drag data:", error);
+  }
+}
   return <>
    <h2>To Do List</h2>
 
@@ -81,7 +104,7 @@ const handleDelete = (id) => {
       {STATUS.map((status) => {
         const statusTodos = todos.filter((todo) => todo.status === status);
         return (
-          <BoardColumn key={status} title={status} todos={statusTodos} onMoveForward={handleMoveForward} onMoveBackward={handleMoveBackward} onDelete={handleDelete} />
+          <BoardColumn key={status} title={status} todos={statusTodos} onMoveForward={handleMoveForward} onMoveBackward={handleMoveBackward} onDelete={handleDelete} handleDragStart={handleDragStart} handleOnDrop ={handleOnDrop}/>
         );
       })}
       

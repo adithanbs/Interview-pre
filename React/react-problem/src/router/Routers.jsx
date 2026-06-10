@@ -7,6 +7,8 @@ import ComponentA from "../pages/handle-child-event/componentA";
 import NavigationBar from "../components/nav-bar";
 import MemoryLeak from "../pages/memory-leak.tsx";
 import TestContext from "../pages/test-context/test-context.tsx";
+import SearchDebounce from "../pages/search-debounce.tsx";
+import Throttle from "../pages/trottle.js";
 
 export default function Routers() {
   return (
@@ -20,6 +22,8 @@ export default function Routers() {
         <Route path="/ref" element={<ComponentA />} />
         <Route path="/memory-leak" element={<MemoryLeak />} />
         <Route path="/test-context" element={<TestContext />} />
+        <Route path="/search-debounce" element={<SearchDebounce />} />
+        <Route path="/throttle" element={<Throttle/>} />
 
     </Routes>
     </>

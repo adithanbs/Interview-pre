@@ -9,6 +9,8 @@ const Home = () => {
    <li><Link to="/ref">Handle Child Event with Ref</Link></li>
    <li><Link to="/memory-leak">Memory Leak</Link></li>
     <li><Link to="/test-context">Test Context</Link></li>
+    <li><Link to="/search-debounce">Search Debounce</Link></li>
+    <li><Link to="/throttle">Throttle</Link></li>
   </ul>
   
   </>;
